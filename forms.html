@@ -16,7 +16,7 @@
       <h1>Creiamo e manipoliamo un form con HTML + JS</h1>
     </header>
     <main>
-      <form>
+      <form id="main-form">
         <div>
           <label for="firstName">Nome</label>
           <input
@@ -51,7 +51,19 @@
         </div>
         <div>
           <button>INVIA</button>
-          <!-- questo pulsante, anche  -->
+          <!-- questo pulsante, anche se non è dotato di onclick o addEventListener, cerca di 
+           effettuare delle operazioni nella pagina (refresh, perdiamo i valori degli input etc.) -->
+          <!-- cosa succede? poichè questo button è inserito in un tag form, riceve AUTOMATICAMENTE
+            dal browser un eventListener di SUBMIT del form in cui è inserito -->
+          <!-- questo perchè riceve dal browser in automatico un type="submit" -->
+        </div>
+        <div>
+          <!-- questo bottone, grazie all'esplicito type="reset", svuoterà i campi del form -->
+          <button type="reset">RESET</button>
+        </div>
+        <div>
+          <!-- questo bottone, grazie all'esplicito type="button", NON invierà il form in automatico -->
+          <button type="button">NON FACCIO NIENTE</button>
         </div>
       </form>
     </main>

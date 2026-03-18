@@ -48,7 +48,8 @@ const createJSButton = function () {
 
   // applichiamo al bottone viola un comportamento, e rendiamolo sensibile al click del mouse
   // non ho a disposizione il tag HTML, quindi devo ricorrere al metodo b) -> addEventListener
-  newButton.addEventListener('click', function () {
+  newButton.addEventListener('click', function (e) {
+    console.log('OGGETTO EVENTO', e)
     // potete scrivere il codice qui dentro, oppure potete collegare una funzione esterna
     // al click del pulsante viola creiamo un'immagine di un orso e la appendiamo nel DOM
     const orsoImage = document.createElement('img') // <img />
