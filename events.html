@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gli EVENTI in JS</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #d9d9d9;
+      }
+
+      .rounded {
+        border: 1px solid grey;
+        border-radius: 15px;
+        padding: 0.25em 0.5em;
+        cursor: pointer;
+      }
+
+      .orange {
+        background-color: orangered;
+        color: white;
+      }
+
+      .violet {
+        background-color: purple;
+        color: white;
+      }
+
+      h1 {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 onclick="buttonClick()">
+        Gli eventi in JavaScript: guida pratica :)
+      </h1>
+    </header>
+    <main>
+      <section id="btn-container">
+        <button class="rounded orange" onclick="buttonClick()">
+          BOTTONE HTML
+        </button>
+        <!-- qui andrà a posizionarsi il mio bottone creato via JS -->
+      </section>
+    </main>
+    <footer></footer>
+    <script src="./scripts/events.js"></script>
+  </body>
+</html>
