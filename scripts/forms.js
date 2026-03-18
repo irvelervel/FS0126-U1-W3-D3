@@ -12,6 +12,10 @@ const form = document.getElementById('main-form')
 // intervengo (e sovrascrivo) il suo evento di submit
 form.addEventListener('submit', function (e) {
   // per prima cosa, dobbiamo FERMARE il comportamento di default che prevede il refresh della pagina
+
+  // se avete affibbiato la funzione all'event listener tramite .addEventListener(), il parametro
+  // e arriva automaticamente, è REGALATO
+
   console.log('OGGETTO EVENTO', e)
   e.preventDefault() // prevengo il comportamento di default
   // questa riga va SEMPRE MESSA in cima alla funzione OGNI VOLTA che lavorerete con un form!
