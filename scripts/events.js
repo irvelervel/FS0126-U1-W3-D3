@@ -22,19 +22,56 @@
 // document.createElement('button'), dovete inserire l'event listener attraverso JS.
 // Per farlo, dovete utilizzare sull'elemento appena creato un metodo JS di nome "addEventListener()"
 
+let numberOfVioletButtons = 0
+
 // funzione per il click del bottone HTML
 const buttonClick = function () {
   console.log('bottone cliccato con successo!')
+  // il click del bottone arancione causerà l'esecuzione della funzione per creare il bottone viola
+  if (
+    // creiamo un bottone viola solo se il numero dei bottoni viola attualmente nella pagina è 0
+    numberOfVioletButtons < 3
+  ) {
+    createJSButton()
+  } else {
+    alert('BASTA BOTTONIIIII')
+  }
 }
 
-// creiamo ora un buttone via JS!
-// queste righe non le inserisco in nessuna funzione, ciò significa che verrano AUTOMATICAMENTE
-// eseguite all'avvio della pagina
-const newButton = document.createElement('button') // <button></button>
-// inseriamoci un'etichetta
-newButton.innerText = 'BOTTONE JS' // <button>BOTTONE JS</button>
-// inseriamoci qualche classe CSS
-newButton.classList.add('rounded', 'violet') // <button class="rounded violet">BOTTONE JS</button>
-// appendiamo il bottone nel DOM: ho bisogno di recuperare il suo elemento "padre", "contenitore"
-const parent = document.getElementById('btn-container') // recupero la section
-parent.appendChild(newButton) // ora l'elemento viene fisicamente appeso nel DOM dentro la section
+const createJSButton = function () {
+  // creiamo ora un buttone via JS!
+  const newButton = document.createElement('button') // <button></button>
+  // inseriamoci un'etichetta
+  newButton.innerText = 'BOTTONE JS' // <button>BOTTONE JS</button>
+  // inseriamoci qualche classe CSS
+  newButton.classList.add('rounded', 'violet') // <button class="rounded violet">BOTTONE JS</button>
+
+  // applichiamo al bottone viola un comportamento, e rendiamolo sensibile al click del mouse
+  // non ho a disposizione il tag HTML, quindi devo ricorrere al metodo b) -> addEventListener
+  newButton.addEventListener('click', function () {
+    // potete scrivere il codice qui dentro, oppure potete collegare una funzione esterna
+    // al click del pulsante viola creiamo un'immagine di un orso e la appendiamo nel DOM
+    const orsoImage = document.createElement('img') // <img />
+    orsoImage.setAttribute('src', 'https://placebear.com/100/100') // <img src="https://placebear.com/250/250" />
+    orsoImage.setAttribute('alt', 'orsetto puccioso') // <img src="https://placebear.com/250/250" alt="orsetto puccioso" />
+    orsoImage.classList.add('circle') // <img class="circle" src="https://placebear.com/250/250" alt="orsetto puccioso" />
+
+    // prima di venire appeso, assegniamo un ascoltatore di evento "mouseenter" a ogni orsobollino
+    orsoImage.addEventListener('mouseenter', function () {
+      orsoImage.style.transform = 'scale(1.25)'
+    })
+    // e ripristiniamo la dimensione normale al mouseleave
+    orsoImage.addEventListener('mouseleave', function () {
+      orsoImage.style.transform = 'scale(1)'
+    })
+
+    // cerco il parent
+    const section = document.getElementById('bears')
+    section.appendChild(orsoImage)
+  })
+
+  // appendiamo il bottone nel DOM: ho bisogno di recuperare il suo elemento "padre", "contenitore"
+  const parent = document.getElementById('btn-container') // recupero la section
+  parent.appendChild(newButton) // ora l'elemento viene fisicamente appeso nel DOM dentro la section
+  numberOfVioletButtons++
+}

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>I form (veri) in JS</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #d9d9d9;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Creiamo e manipoliamo un form con HTML + JS</h1>
+    </header>
+    <main>
+      <form>
+        <div>
+          <label for="firstName">Nome</label>
+          <input
+            id="firstName"
+            type="text"
+            required
+            minlength="2"
+            maxlength="100"
+          />
+        </div>
+        <div>
+          <label for="lastName">Cognome</label>
+          <input
+            id="lastName"
+            type="text"
+            required
+            minlength="2"
+            maxlength="100"
+          />
+        </div>
+        <div>
+          <label for="age">Età</label>
+          <input id="age" type="number" required min="18" max="100" />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" type="email" required />
+        </div>
+        <div>
+          <label for="tos">Accetto i Termini di utilizzo</label>
+          <input id="tos" type="checkbox" required />
+        </div>
+        <div>
+          <button>INVIA</button>
+          <!-- questo pulsante, anche  -->
+        </div>
+      </form>
+    </main>
+    <script src="./scripts/forms.js"></script>
+  </body>
+</html>
